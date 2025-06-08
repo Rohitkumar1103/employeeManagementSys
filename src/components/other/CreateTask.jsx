@@ -14,7 +14,6 @@ const CreateTask = () => {
 
     setTask({taskTitle, taskDescription, taskDate, category, assignTo, active: false, newTask:true, failed:true, completed: false})
     
-    
     const data = localStorage.getItem('employees')
     setTaskDate("")
     setAssignTo('')
