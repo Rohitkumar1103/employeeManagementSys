@@ -328,7 +328,7 @@ const admin = [
   {
     id: 1,
     firstName: "Rohit",
-    email: "admin@example.com",
+    email: "admin@me.com",
     password: "123"
   }
 ];
@@ -339,7 +339,7 @@ export const setLocalStorage = () => {
   localStorage.setItem("admin", JSON.stringify(admin));
 };
 
-export const getLocalStorqage = () => {
+export const getLocalStorage = () => {
   const employees = JSON.parse(localStorage.getItem("employees"));
   const admin = JSON.parse(localStorage.getItem("admin"));
   return { employees, admin };
