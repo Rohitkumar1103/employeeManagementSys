@@ -5,13 +5,25 @@ import FailedTask from './FailedTask'
 import NewTask from './NewTask'
 
 const TaskList = ({data}) => {
+    if (!data || !Array.isArray(data.tasks)) {
+    return null; // or a loading spinner or fallback UI
+  }
   return (
     <div id = 'taskList' className='h-[55%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-5 mt-10'>
-      <AcceptTask/>
-      <CompleteTask/>
-      <FailedTask/>
-      <NewTask/>
-      
+      {data.tasks.map((elem, idx) =>{
+        if(elem.active){
+          return <AcceptTask key={idx}/>
+        }
+        if(elem.NewTask){
+          return <NewTask key={idx}/>
+        }
+        if(elem.completed){
+          return <CompleteTask key={idx}/>
+        } 
+        if(elem.failed){
+          return <FailedTask key={idx}/>
+        }
+      })}  
     </div>
   )
 }
