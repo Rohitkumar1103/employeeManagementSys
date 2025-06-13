@@ -7,9 +7,14 @@ const CreateTask = () => {
   const [assignTo, setAssignTo] = useState('')
   const [category, setCategory] = useState('')
 
+  const [task, setTask] = useState([''])
+
   const submitHandler = (e)=>{
     e.preventDefault()
+
+    setTask({taskTitle, taskDescription, taskDate, category, assignTo, active: false, newTask:true, failed:true, completed: false})
     
+    const data = localStorage.getItem('employees')
     setTaskDate("")
     setAssignTo('')
     setCategory('')
