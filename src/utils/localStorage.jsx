@@ -1,5 +1,3 @@
-localStorage.clear()
-
 const employees = [
   {
     id: 1,
@@ -333,10 +331,15 @@ const admin = [
   }
 ];
 
+
 // LocalStorage functions
 export const setLocalStorage = () => {
-  localStorage.setItem("employees", JSON.stringify(employees));
-  localStorage.setItem("admin", JSON.stringify(admin));
+  if (!localStorage.getItem("employees")) {
+    localStorage.setItem("employees", JSON.stringify(employees));
+  }
+  if (!localStorage.getItem("admin")) {
+    localStorage.setItem("admin", JSON.stringify(admin));
+  }
 };
 
 export const getLocalStorage = () => {
